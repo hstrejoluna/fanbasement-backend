@@ -12,5 +12,6 @@ import { SupabaseModule } from '../supabase/supabase.module';
   ],
   providers: [UsersService],
   controllers: [UsersController],
+  exports: [UsersService], 
 })
 export class UsersModule {}
