@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from './users.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user.entity';
-import { getRepositoryToken } from '@nestjs/typeorm';
+import { getRepositoryToken, DataSource } from 'typeorm';
 import { SupabaseModule } from '../supabase/supabase.module';
 
 describe('UsersService', () => {
@@ -23,6 +23,10 @@ describe('UsersService', () => {
         {
           provide: 'SUPABASE_CLIENT',
           useValue: {}, // Provide a mock or actual implementation of Supabase client
+        },
+        {
+          provide: DataSource,
+          useValue: {}, // Mock DataSource
         },
       ],
     }).compile();

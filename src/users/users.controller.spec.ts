@@ -3,7 +3,7 @@ import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user.entity';
-import { getRepositoryToken } from '@nestjs/typeorm';
+import { getRepositoryToken, DataSource } from 'typeorm';
 import { SupabaseModule } from '../supabase/supabase.module';
 
 describe('UsersController', () => {
@@ -25,6 +25,10 @@ describe('UsersController', () => {
         {
           provide: 'SUPABASE_CLIENT',
           useValue: {}, // Provide a mock or actual implementation of Supabase client
+        },
+        {
+          provide: DataSource,
+          useValue: {}, // Mock DataSource
         },
       ],
     }).compile();
