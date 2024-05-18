@@ -7,12 +7,13 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get()
-  findAll(): Promise<User[]> {
+  async findAll(): Promise<User[]> {
     return this.usersService.findAll();
   }
 
   @Post()
-  create(@Body() userData: Partial<User>): Promise<User> {
+  async create(@Body() userData: Partial<User>): Promise<User> {
     return this.usersService.create(userData);
   }
 }
+
