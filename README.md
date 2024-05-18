@@ -26,3 +26,4 @@
 ## Linting
 
 - `npm run lint`
+Testing GitHub Actions setup
